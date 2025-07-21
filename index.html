@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+    <script>
+    const heart = document.getElementById("main-heart");
+
+heart.addEventListener("click", () => {
+  for (let i = 0; i < 5; i++) {
+    const smallHeart = document.createElement("div");
+    smallHeart.className = "small-heart";
+    smallHeart.textContent = "❤️";
+
+    document.getElementById("heart").addEventListener("click", function() {
+    this.classList.toggle("active");
+});
+const heart = document.getElementById("heart");
+
+function toggleHeart() {
+    heart.classList.toggle("active");
+}
+
+heart.addEventListener("click", toggleHeart);
+heart.addEventListener("touchstart", toggleHeart);
+
+
+    // Posición aleatoria cerca del corazón principal
+    const x = heart.offsetLeft + heart.offsetWidth / 2 + (Math.random() - 0.5) * 100;
+    const y = heart.offsetTop + heart.offsetHeight / 2 + (Math.random() - 0.5) * 50;
+
+    smallHeart.style.left = `${x}px`;
+    smallHeart.style.top = `${y}px`;
+
+    document.body.appendChild(smallHeart);
+
+    // Eliminar el corazón pequeño después de la animación
+    setTimeout(() => {
+      smallHeart.remove();
+    }, 2000);
+  }
+});
+</script>
+    <style>body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+h1 {
+  color: purple;
+  font-size: 3em;
+}
+
+.dedicatoria {
+  color: red;
+  font-size: 1.5em;
+  margin-bottom: 50px;
+}
+
+.heart {
+  font-size: 5em;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.heart:hover {
+  transform: scale(1.1);
+}
+
+.small-heart {
+  position: absolute;
+  font-size: 1.5em;
+  animation: floatUp 2s ease-out forwards;
+  color: red;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+}
+</style>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Emely 💜</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Para Emely 💜</h1>
+    <pre>      Haaaaaaa esto tomo un poquito de tiempo
+        espero que lo aprecies bb
+        Te amo mi niña linda quiero que sepas
+        que lo quiero lograr bb contigo
+    </pre>
+    <h1>"CONTIGO"</h1>
+    <p class="dedicatoria">Con cariño, de parte de Wilibert</p>
+    <div class="heart" id="main-heart">❤️</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
